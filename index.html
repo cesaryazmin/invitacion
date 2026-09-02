@@ -276,12 +276,340 @@ section { padding:62px 0; }
   transform: scale(.98);
 }
 
+
+/* Secciones extra: música, dress code y tips */
+.extra-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 18px;
+}
+.extra-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 28px 22px;
+  text-align: center;
+  box-shadow: 0 18px 40px rgba(70,50,38,.07);
+}
+.extra-card .extra-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  color: var(--gold);
+  font-size: 1.55rem;
+}
+.extra-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+.extra-card p {
+  margin: 6px 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.dress-swatches {
+  margin: 18px auto 0;
+  max-width: 420px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.dress-swatch {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,.10);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.65);
+}
+.dress-swatch:nth-child(1){background:#eadfce}
+.dress-swatch:nth-child(2){background:#d8c4ad}
+.dress-swatch:nth-child(3){background:#b8c8b1}
+.dress-swatch:nth-child(4){background:#c8d4df}
+.dress-swatch:nth-child(5){background:#e7c6c6}
+.dress-swatch:nth-child(6){background:#d9d3e5}
+
+.tips-list {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 14px;
+}
+.tips-list li {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 16px 18px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.tips-list strong {
+  color: var(--ink);
+}
+
+.song-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 11000;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: rgba(25,20,17,.72);
+  backdrop-filter: blur(8px);
+}
+.song-modal.hidden { display:none; }
+.song-modal-card {
+  width: min(420px,100%);
+  background: #fffdf9;
+  border-radius: 28px;
+  padding: 26px 22px;
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+.song-modal-card h3 {
+  margin: 0 0 8px;
+  font-weight: 400;
+  font-size: 1.7rem;
+}
+.song-modal-card p {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+.song-modal-card input {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0 14px;
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  background: white;
+}
+.song-modal-actions {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.song-modal-actions button {
+  flex: 1 1 150px;
+  min-height: 46px;
+  border-radius: 999px;
+  border: 1px solid var(--dark);
+  font: inherit;
+  cursor: pointer;
+}
+.song-send {
+  background: var(--dark);
+  color: white;
+}
+.song-close {
+  background: transparent;
+  color: var(--dark);
+}
+.song-note {
+  margin-top: 10px;
+  font-size: .88rem;
+  color: var(--muted);
+}
+
+@media (max-width:720px) {
+  .extra-grid { grid-template-columns:1fr; }
+  .extra-card { padding:24px 18px; }
+}
+
+
+/* Video de fondo de portada */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero::before {
+  z-index: 1;
+}
+.hero-content {
+  z-index: 2;
+}
+
+
+/* Video de fondo global */
+html, body {
+  background: transparent !important;
+}
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+#globalVideoBg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: -3;
+  pointer-events: none;
+}
+#globalVideoOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(18,15,12,.28) 0%, rgba(248,243,238,.42) 22%, rgba(248,243,238,.62) 100%);
+}
+.hero {
+  background: transparent !important;
+}
+.hero::before {
+  z-index: 1;
+}
+.wrap, .hero-content, section, .footer {
+  position: relative;
+  z-index: 2;
+}
+section {
+  background: transparent !important;
+}
+.card,
+.extra-card,
+.count,
+.tips-list li,
+.memory-frame,
+.song-modal-card {
+  background: rgba(255, 253, 249, 0.88) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.rsvp {
+  background: rgba(241, 230, 220, 0.55) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.intro,
+.quote,
+.footer,
+.title h2,
+.title small,
+.card p,
+.extra-card p,
+.tips-list li {
+  text-shadow: 0 1px 0 rgba(255,255,255,.18);
+}
+
+
+/* Fondo más oscuro al desplazarse */
+:root {
+  --video-overlay-opacity: .26;
+}
+#globalVideoOverlay {
+  background: #15120f !important;
+  opacity: var(--video-overlay-opacity);
+  transition: opacity .25s ease;
+}
+body.scrolled-dark .title h2,
+body.scrolled-dark .intro,
+body.scrolled-dark .quote,
+body.scrolled-dark .footer {
+  color: #fff !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,.52) !important;
+}
+body.scrolled-dark .title small {
+  color: #ead7bd !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,.45) !important;
+}
+body.scrolled-dark .card,
+body.scrolled-dark .extra-card,
+body.scrolled-dark .count,
+body.scrolled-dark .tips-list li {
+  background: rgba(255,253,249,.93) !important;
+}
+
+/* Dress Code elegante con imagen */
+.dress-code-card {
+  max-width: 760px;
+  margin: 0 auto;
+  background: rgba(255,253,249,.95);
+  border: 1px solid rgba(218,198,173,.72);
+  border-radius: 30px;
+  padding: 18px;
+  box-shadow: 0 18px 46px rgba(27,20,16,.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.dress-code-image-wrap {
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(218,198,173,.62);
+  background: #f8f1e9;
+}
+.dress-code-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.dress-code-copy {
+  text-align: center;
+  padding: 20px 14px 8px;
+}
+.dress-code-copy .mini {
+  display: block;
+  color: var(--gold);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: .74rem;
+  margin-bottom: 8px;
+}
+.dress-code-copy h3 {
+  margin: 0 0 8px;
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  font-weight: 400;
+  color: var(--ink);
+}
+.dress-code-copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+@media (max-width:720px) {
+  .dress-code-card {
+    padding: 12px;
+    border-radius: 24px;
+  }
+  .dress-code-image-wrap {
+    border-radius: 18px;
+  }
+  .dress-code-copy {
+    padding: 18px 10px 8px;
+  }
+}
+
 </style>
 </head>
 <body>
 
+<video id="globalVideoBg" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+  <source src="fondo.mp4" type="video/mp4">
+</video>
+<div id="globalVideoOverlay" aria-hidden="true"></div>
+
+
 <header class="hero">
-  <div class="hero-content">
+<div class="hero-content">
     <div class="kicker">Nuestra boda</div>
     <h1>César <span class="amp">&</span> Yazmín</h1>
     <div class="badge">Sábado 28 de noviembre de 2026 · 18:00 hs</div>
@@ -345,7 +673,7 @@ section { padding:62px 0; }
       </article>
       <article class="card">
         <h3>20:30 a 21:30 hs</h3>
-        <p><strong>Recepción en el salón y fotografía</strong></p>
+        <p><strong>Recepción de invitados</strong></p>
         <p>Salón de la Capilla</p>
       </article>
       <article class="card">
@@ -414,6 +742,61 @@ section { padding:62px 0; }
 <section class="fade">
   <div class="wrap">
     <p class="quote">“Hay momentos en la vida que son especiales por sí solos, pero compartirlos con las personas que queremos los vuelve inolvidables.”</p>
+  </div>
+</section>
+
+
+<section class="fade">
+  <div class="wrap">
+    <div class="title">
+      <small>Un detalle más</small>
+      <h2>Música</h2>
+    </div>
+
+    <div class="extra-card">
+      <div class="extra-icon">♫</div>
+      <h3>La canción que no puede faltar</h3>
+      <p>¿Qué canción te gustaría escuchar en nuestra fiesta?</p>
+      <button id="suggestSongBtn" class="btn" type="button">Sugerir canción</button>
+    </div>
+  </div>
+</section>
+
+
+<section class="fade">
+  <div class="wrap">
+    <div class="title">
+      <small>Vestimenta</small>
+      <h2>Dress Code</h2>
+    </div>
+
+    <div class="dress-code-card">
+      <div class="dress-code-image-wrap">
+        <img class="dress-code-image" src="dresscode.jpg" alt="Inspiración de vestimenta formal para la boda">
+      </div>
+      <div class="dress-code-copy">
+        <span class="mini">Inspiración</span>
+        <h3>Vestimenta Formal</h3>
+        <p>Elegante, sobria y cómoda para disfrutar con nosotros de una noche muy especial.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="fade">
+  <div class="wrap">
+    <div class="title">
+      <small>Para tener en cuenta</small>
+      <h2>Tips y Notas</h2>
+    </div>
+
+    <ul class="tips-list">
+      <li><strong>¡Por favor, sean puntuales!</strong> La ceremonia religiosa inicia a las 18:00 hs.</li>
+      <li>Queremos que disfruten cada momento de la celebración y del cronograma preparado para ustedes.</li>
+      <li><strong>Confirmen su asistencia con anticipación</strong> mediante el botón de confirmación de la invitación.</li>
+      <li>Vengan con ganas de disfrutar, bailar y compartir con nosotros hasta el amanecer.</li>
+    </ul>
   </div>
 </section>
 
@@ -548,6 +931,98 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
 
   audio.addEventListener("play", updateButton);
   audio.addEventListener("pause", updateButton);
+})();
+</script>
+
+
+<div id="songModal" class="song-modal hidden" role="dialog" aria-modal="true" aria-label="Sugerir canción">
+  <div class="song-modal-card">
+    <h3>Sugerir canción</h3>
+    <p>Escribí el nombre de la canción y, si querés, el artista.</p>
+    <input id="songInput" type="text" maxlength="120" placeholder="Ej.: Perfect — Ed Sheeran">
+    <div class="song-modal-actions">
+      <button id="songSendBtn" class="song-send" type="button">Compartir sugerencia</button>
+      <button id="songCloseBtn" class="song-close" type="button">Cerrar</button>
+    </div>
+    <div class="song-note" id="songNote">En el celular se abrirá el menú para compartir la sugerencia.</div>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  const openBtn = document.getElementById("suggestSongBtn");
+  const modal = document.getElementById("songModal");
+  const input = document.getElementById("songInput");
+  const sendBtn = document.getElementById("songSendBtn");
+  const closeBtn = document.getElementById("songCloseBtn");
+  const note = document.getElementById("songNote");
+
+  if(!openBtn || !modal || !input || !sendBtn || !closeBtn) return;
+
+  function openModal(){
+    modal.classList.remove("hidden");
+    setTimeout(()=>input.focus(), 50);
+  }
+  function closeModal(){
+    modal.classList.add("hidden");
+  }
+
+  openBtn.addEventListener("click", openModal);
+  closeBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", (e)=>{
+    if(e.target === modal) closeModal();
+  });
+
+  sendBtn.addEventListener("click", async ()=>{
+    const song = input.value.trim();
+    if(!song){
+      note.textContent = "Escribí primero el nombre de una canción.";
+      input.focus();
+      return;
+    }
+
+    const text = "Sugerencia de canción para la boda de César & Yazmín: " + song;
+
+    if(navigator.share){
+      try{
+        await navigator.share({text});
+        note.textContent = "¡Gracias por la sugerencia!";
+        input.value = "";
+        setTimeout(closeModal, 700);
+        return;
+      }catch(e){
+        if(e && e.name === "AbortError") return;
+      }
+    }
+
+    // Fallback: abrir WhatsApp sin destinatario específico.
+    const url = "https://wa.me/?text=" + encodeURIComponent(text);
+    window.open(url, "_blank");
+  });
+})();
+</script>
+
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const body = document.body;
+
+  function updateVideoShade(){
+    const vh = Math.max(window.innerHeight || 1, 1);
+    const progress = Math.min(Math.max(window.scrollY / (vh * 1.15), 0), 1);
+
+    // De 26% de oscuridad en portada a 66% al bajar.
+    const opacity = 0.26 + (0.40 * progress);
+    root.style.setProperty("--video-overlay-opacity", opacity.toFixed(3));
+    body.classList.toggle("scrolled-dark", progress > 0.42);
+  }
+
+  updateVideoShade();
+  window.addEventListener("scroll", updateVideoShade, {passive:true});
+  window.addEventListener("resize", updateVideoShade);
 })();
 </script>
 
