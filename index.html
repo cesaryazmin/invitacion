@@ -757,7 +757,7 @@ body.scrolled-dark .tips-list li {
       <div class="extra-icon">♫</div>
       <h3>La canción que no puede faltar</h3>
       <p>¿Qué canción te gustaría escuchar en nuestra fiesta?</p>
-      <button id="suggestSongBtn" class="btn" type="button">Sugerir canción</button>
+      <a id="suggestSongBtn" class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdPmsjJNCZbxdK6_J5qNRXet4o3mwvCuW_QS6lGKgg_l4KsSg/viewform?usp=header" target="_blank" rel="noopener">Sugerir canción</a>
     </div>
   </div>
 </section>
@@ -933,78 +933,9 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
   audio.addEventListener("pause", updateButton);
 })();
 </script>
-
-
-<div id="songModal" class="song-modal hidden" role="dialog" aria-modal="true" aria-label="Sugerir canción">
-  <div class="song-modal-card">
-    <h3>Sugerir canción</h3>
-    <p>Escribí el nombre de la canción y, si querés, el artista.</p>
-    <input id="songInput" type="text" maxlength="120" placeholder="Ej.: Perfect — Ed Sheeran">
-    <div class="song-modal-actions">
-      <button id="songSendBtn" class="song-send" type="button">Compartir sugerencia</button>
-      <button id="songCloseBtn" class="song-close" type="button">Cerrar</button>
-    </div>
-    <div class="song-note" id="songNote">En el celular se abrirá el menú para compartir la sugerencia.</div>
+<div class="song-note" id="songNote">En el celular se abrirá el menú para compartir la sugerencia.</div>
   </div>
 </div>
-
-
-<script>
-(function(){
-  const openBtn = document.getElementById("suggestSongBtn");
-  const modal = document.getElementById("songModal");
-  const input = document.getElementById("songInput");
-  const sendBtn = document.getElementById("songSendBtn");
-  const closeBtn = document.getElementById("songCloseBtn");
-  const note = document.getElementById("songNote");
-
-  if(!openBtn || !modal || !input || !sendBtn || !closeBtn) return;
-
-  function openModal(){
-    modal.classList.remove("hidden");
-    setTimeout(()=>input.focus(), 50);
-  }
-  function closeModal(){
-    modal.classList.add("hidden");
-  }
-
-  openBtn.addEventListener("click", openModal);
-  closeBtn.addEventListener("click", closeModal);
-
-  modal.addEventListener("click", (e)=>{
-    if(e.target === modal) closeModal();
-  });
-
-  sendBtn.addEventListener("click", async ()=>{
-    const song = input.value.trim();
-    if(!song){
-      note.textContent = "Escribí primero el nombre de una canción.";
-      input.focus();
-      return;
-    }
-
-    const text = "Sugerencia de canción para la boda de César & Yazmín: " + song;
-
-    if(navigator.share){
-      try{
-        await navigator.share({text});
-        note.textContent = "¡Gracias por la sugerencia!";
-        input.value = "";
-        setTimeout(closeModal, 700);
-        return;
-      }catch(e){
-        if(e && e.name === "AbortError") return;
-      }
-    }
-
-    // Fallback: abrir WhatsApp sin destinatario específico.
-    const url = "https://wa.me/?text=" + encodeURIComponent(text);
-    window.open(url, "_blank");
-  });
-})();
-</script>
-
-
 <script>
 (function(){
   const root = document.documentElement;
