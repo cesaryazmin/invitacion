@@ -1334,7 +1334,7 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
       const timer = setTimeout(() => {
         cleanup();
         reject(new Error("Tiempo de espera agotado"));
-      }, 15000);
+      }, 30000);
 
       window[callback] = (data) => {
         clearTimeout(timer);
@@ -1360,6 +1360,61 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
       document.body.appendChild(script);
     });
   }
+
+  const GIFT_CACHE_KEY = "cesar_yazmin_regalos_cache_v1";
+  let conexionListaActiva = false;
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  function saveGiftCache(list) {
+    try {
+      localStorage.setItem(GIFT_CACHE_KEY, JSON.stringify({
+        savedAt: Date.now(),
+        regalos: list
+      }));
+    } catch(e) {}
+  }
+
+  function readGiftCache() {
+    try {
+      const raw = localStorage.getItem(GIFT_CACHE_KEY);
+      if(!raw) return null;
+      const data = JSON.parse(raw);
+      if(!data || !Array.isArray(data.regalos)) return null;
+      return data;
+    } catch(e) {
+      return null;
+    }
+  }
+
+  async function listWithRetry() {
+    let lastError = null;
+
+    for(let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        const data = await apiCall({ action: "listar" });
+
+        if(!data || !data.ok || !Array.isArray(data.regalos)) {
+          throw new Error(data && data.error ? data.error : "Respuesta no válida");
+        }
+
+        return data;
+      } catch(err) {
+        lastError = err;
+        console.warn("Intento " + attempt + " de cargar regalos falló:", err);
+
+        if(attempt < 3) {
+          count.textContent = "Conectando… intento " + (attempt + 1) + " de 3";
+          await sleep(attempt === 1 ? 1500 : 3500);
+        }
+      }
+    }
+
+    throw lastError || new Error("No se pudo conectar");
+  }
+
 
   function categories() {
     const vals = regalos.map(g => safe(g.categoria)).filter(Boolean);
@@ -1468,29 +1523,50 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
   }
 
   async function loadGifts() {
-    grid.innerHTML = '<div class="gifts-loading">Cargando lista de regalos…</div>';
-    count.textContent = "Cargando regalos…";
     refresh.disabled = true;
+    conexionListaActiva = false;
+
+    // Mostrar inmediatamente la última lista válida guardada, si existe.
+    const cached = readGiftCache();
+    if(cached && cached.regalos.length) {
+      regalos = cached.regalos;
+      renderFilters();
+      renderGifts();
+      count.textContent = regalos.length + " regalos · actualizando…";
+    } else {
+      grid.innerHTML = '<div class="gifts-loading">Cargando lista de regalos…</div>';
+      count.textContent = "Cargando regalos…";
+    }
 
     try {
-      const data = await apiCall({ action: "listar" });
-
-      if(!data || !data.ok || !Array.isArray(data.regalos)) {
-        throw new Error(data && data.error ? data.error : "Respuesta no válida");
-      }
+      const data = await listWithRetry();
 
       regalos = data.regalos;
+      conexionListaActiva = true;
+      saveGiftCache(regalos);
+
       if(categoriaActiva !== "Todos" && !categories().includes(categoriaActiva)) {
         categoriaActiva = "Todos";
       }
+
       renderFilters();
       renderGifts();
+
     } catch(err) {
       console.error(err);
-      count.textContent = "No se pudo cargar la lista";
-      grid.innerHTML =
-        '<div class="gifts-error"><strong>No pudimos cargar los regalos.</strong>' +
-        'Tocá “Actualizar” para intentar nuevamente.</div>';
+
+      // Si había una copia guardada, mantenerla visible en vez de mostrar la lista vacía.
+      if(cached && cached.regalos.length) {
+        regalos = cached.regalos;
+        renderFilters();
+        renderGifts();
+        count.textContent = regalos.length + " regalos · última lista cargada";
+      } else {
+        count.textContent = "No se pudo cargar la lista";
+        grid.innerHTML =
+          '<div class="gifts-error"><strong>La conexión está demorando más de lo normal.</strong>' +
+          'Tocá “Actualizar” para volver a intentar.</div>';
+      }
     } finally {
       refresh.disabled = false;
     }
@@ -1538,6 +1614,16 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
       confirmBtn.textContent = isSpecial(regaloActivo) ? "Registrar aporte" : "Reservar";
     }
   }
+
+  let lastAutoRefresh = 0;
+  window.addEventListener("focus", () => {
+    const now = Date.now();
+    if(now - lastAutoRefresh > 60000) {
+      lastAutoRefresh = now;
+      loadGifts();
+    }
+  });
+
 
   refresh.addEventListener("click", loadGifts);
   cancelBtn.addEventListener("click", closeModal);
