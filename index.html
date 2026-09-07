@@ -1305,7 +1305,8 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
 
   if(!grid || !filters || !modal) return;
 
-  let regalos = [];
+  const REGALOS_FIJOS = [{"id": 1, "categoria": "Cocina y comedor", "regalo": "Juego de platos hondos", "tipo": "Único", "estado": "Disponible"}, {"id": 2, "categoria": "Cocina y comedor", "regalo": "Juego de platos playos", "tipo": "Único", "estado": "Disponible"}, {"id": 3, "categoria": "Cocina y comedor", "regalo": "Juego de cubiertos", "tipo": "Único", "estado": "Disponible"}, {"id": 4, "categoria": "Cocina y comedor", "regalo": "Juego de vasos", "tipo": "Único", "estado": "Disponible"}, {"id": 5, "categoria": "Cocina y comedor", "regalo": "Juego de copas de vino", "tipo": "Único", "estado": "Disponible"}, {"id": 6, "categoria": "Cocina y comedor", "regalo": "Juego de tazas de café", "tipo": "Único", "estado": "Disponible"}, {"id": 7, "categoria": "Cocina y comedor", "regalo": "Juego de ollas", "tipo": "Único", "estado": "Disponible"}, {"id": 8, "categoria": "Cocina y comedor", "regalo": "Kit para mate", "tipo": "Único", "estado": "Disponible"}, {"id": 9, "categoria": "Cocina y comedor", "regalo": "Kit para tereré", "tipo": "Único", "estado": "Disponible"}, {"id": 10, "categoria": "Cocina y comedor", "regalo": "Frascos herméticos", "tipo": "Único", "estado": "Disponible"}, {"id": 11, "categoria": "Cocina y comedor", "regalo": "Juego de manteles", "tipo": "Único", "estado": "Disponible"}, {"id": 12, "categoria": "Electrodomésticos", "regalo": "Licuadora", "tipo": "Único", "estado": "Disponible"}, {"id": 13, "categoria": "Electrodomésticos", "regalo": "Batidora", "tipo": "Único", "estado": "Disponible"}, {"id": 14, "categoria": "Electrodomésticos", "regalo": "Mixer de mano", "tipo": "Único", "estado": "Disponible"}, {"id": 15, "categoria": "Electrodomésticos", "regalo": "Procesadora de alimentos", "tipo": "Único", "estado": "Disponible"}, {"id": 16, "categoria": "Electrodomésticos", "regalo": "Cafetera eléctrica", "tipo": "Único", "estado": "Disponible"}, {"id": 17, "categoria": "Electrodomésticos", "regalo": "Jarra eléctrica", "tipo": "Único", "estado": "Disponible"}, {"id": 18, "categoria": "Electrodomésticos", "regalo": "Microondas", "tipo": "Único", "estado": "Disponible"}, {"id": 19, "categoria": "Electrodomésticos", "regalo": "Horno eléctrico", "tipo": "Único", "estado": "Disponible"}, {"id": 20, "categoria": "Electrodomésticos", "regalo": "Parrilla eléctrica", "tipo": "Único", "estado": "Disponible"}, {"id": 21, "categoria": "Electrodomésticos", "regalo": "Extractor de jugos", "tipo": "Único", "estado": "Disponible"}, {"id": 22, "categoria": "Electrodomésticos", "regalo": "Máquina de pan", "tipo": "Único", "estado": "Disponible"}, {"id": 23, "categoria": "Electrodomésticos", "regalo": "Plancha grill", "tipo": "Único", "estado": "Disponible"}, {"id": 24, "categoria": "Dormitorio", "regalo": "Juego de sábanas matrimonial", "tipo": "Único", "estado": "Disponible"}, {"id": 25, "categoria": "Dormitorio", "regalo": "Edredón", "tipo": "Único", "estado": "Disponible"}, {"id": 26, "categoria": "Dormitorio", "regalo": "Frazada", "tipo": "Único", "estado": "Disponible"}, {"id": 27, "categoria": "Dormitorio", "regalo": "Juego de cortina antisolar", "tipo": "Único", "estado": "Disponible"}, {"id": 28, "categoria": "Dormitorio", "regalo": "Tapetes", "tipo": "Único", "estado": "Disponible"}, {"id": 29, "categoria": "Baño", "regalo": "Juego de toallas de baño", "tipo": "Único", "estado": "Disponible"}, {"id": 30, "categoria": "Baño", "regalo": "Juego de toallas de mano", "tipo": "Único", "estado": "Disponible"}, {"id": 31, "categoria": "Baño", "regalo": "Alfombra de baño", "tipo": "Único", "estado": "Disponible"}, {"id": 32, "categoria": "Baño", "regalo": "Salida de baño para él/ella", "tipo": "Único", "estado": "Disponible"}, {"id": 33, "categoria": "Sala y decoración", "regalo": "Portarretratos", "tipo": "Único", "estado": "Disponible"}, {"id": 34, "categoria": "Sala y decoración", "regalo": "Alfombra para sala", "tipo": "Único", "estado": "Disponible"}, {"id": 35, "categoria": "Sala y decoración", "regalo": "Cortinas para sala", "tipo": "Único", "estado": "Disponible"}, {"id": 36, "categoria": "Lavandería, limpieza y hogar", "regalo": "Hidrolavadora pequeña", "tipo": "Único", "estado": "Disponible"}, {"id": 37, "categoria": "Lavandería, limpieza y hogar", "regalo": "Caja de herramientas para el hogar", "tipo": "Único", "estado": "Disponible"}, {"id": 38, "categoria": "Lavandería, limpieza y hogar", "regalo": "Taladro inalámbrico", "tipo": "Único", "estado": "Disponible"}, {"id": 39, "categoria": "Regalos especiales", "regalo": "Vale para compra de muebles", "tipo": "Aporte múltiple", "estado": "Disponible"}, {"id": 40, "categoria": "Regalos especiales", "regalo": "Vale para electrodomésticos", "tipo": "Aporte múltiple", "estado": "Disponible"}, {"id": 41, "categoria": "Regalos especiales", "regalo": "Aporte para la luna de miel", "tipo": "Aporte múltiple", "estado": "Disponible"}, {"id": 42, "categoria": "Regalos especiales", "regalo": "Aporte para equipamiento de la casa", "tipo": "Aporte múltiple", "estado": "Disponible"}, {"id": 43, "categoria": "Regalos especiales", "regalo": "Sobre de regalo / aporte en efectivo", "tipo": "Aporte múltiple", "estado": "Disponible"}];
+  let regalos = REGALOS_FIJOS.map(g => ({...g}));
   let categoriaActiva = "Todos";
   let regaloActivo = null;
 
@@ -1334,7 +1335,7 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
       const timer = setTimeout(() => {
         cleanup();
         reject(new Error("Tiempo de espera agotado"));
-      }, 30000);
+      }, 15000);
 
       window[callback] = (data) => {
         clearTimeout(timer);
@@ -1360,61 +1361,6 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
       document.body.appendChild(script);
     });
   }
-
-  const GIFT_CACHE_KEY = "cesar_yazmin_regalos_cache_v1";
-  let conexionListaActiva = false;
-
-  function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
-  function saveGiftCache(list) {
-    try {
-      localStorage.setItem(GIFT_CACHE_KEY, JSON.stringify({
-        savedAt: Date.now(),
-        regalos: list
-      }));
-    } catch(e) {}
-  }
-
-  function readGiftCache() {
-    try {
-      const raw = localStorage.getItem(GIFT_CACHE_KEY);
-      if(!raw) return null;
-      const data = JSON.parse(raw);
-      if(!data || !Array.isArray(data.regalos)) return null;
-      return data;
-    } catch(e) {
-      return null;
-    }
-  }
-
-  async function listWithRetry() {
-    let lastError = null;
-
-    for(let attempt = 1; attempt <= 3; attempt++) {
-      try {
-        const data = await apiCall({ action: "listar" });
-
-        if(!data || !data.ok || !Array.isArray(data.regalos)) {
-          throw new Error(data && data.error ? data.error : "Respuesta no válida");
-        }
-
-        return data;
-      } catch(err) {
-        lastError = err;
-        console.warn("Intento " + attempt + " de cargar regalos falló:", err);
-
-        if(attempt < 3) {
-          count.textContent = "Conectando… intento " + (attempt + 1) + " de 3";
-          await sleep(attempt === 1 ? 1500 : 3500);
-        }
-      }
-    }
-
-    throw lastError || new Error("No se pudo conectar");
-  }
-
 
   function categories() {
     const vals = regalos.map(g => safe(g.categoria)).filter(Boolean);
@@ -1524,51 +1470,31 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
 
   async function loadGifts() {
     refresh.disabled = true;
-    conexionListaActiva = false;
-
-    // Mostrar inmediatamente la última lista válida guardada, si existe.
-    const cached = readGiftCache();
-    if(cached && cached.regalos.length) {
-      regalos = cached.regalos;
-      renderFilters();
-      renderGifts();
-      count.textContent = regalos.length + " regalos · actualizando…";
-    } else {
-      grid.innerHTML = '<div class="gifts-loading">Cargando lista de regalos…</div>';
-      count.textContent = "Cargando regalos…";
-    }
+    const textoOriginal = refresh.textContent;
+    refresh.textContent = "Actualizando…";
+    count.textContent = regalos.length + " regalos · consultando estado…";
 
     try {
-      const data = await listWithRetry();
+      const data = await apiCall({ action: "listar" });
+
+      if(!data || !data.ok || !Array.isArray(data.regalos)) {
+        throw new Error(data && data.error ? data.error : "Respuesta no válida");
+      }
 
       regalos = data.regalos;
-      conexionListaActiva = true;
-      saveGiftCache(regalos);
-
       if(categoriaActiva !== "Todos" && !categories().includes(categoriaActiva)) {
         categoriaActiva = "Todos";
       }
-
       renderFilters();
       renderGifts();
-
     } catch(err) {
       console.error(err);
-
-      // Si había una copia guardada, mantenerla visible en vez de mostrar la lista vacía.
-      if(cached && cached.regalos.length) {
-        regalos = cached.regalos;
-        renderFilters();
-        renderGifts();
-        count.textContent = regalos.length + " regalos · última lista cargada";
-      } else {
-        count.textContent = "No se pudo cargar la lista";
-        grid.innerHTML =
-          '<div class="gifts-error"><strong>La conexión está demorando más de lo normal.</strong>' +
-          'Tocá “Actualizar” para volver a intentar.</div>';
-      }
+      count.textContent = regalos.length + " regalos · no se pudo actualizar";
+      renderFilters();
+      renderGifts();
     } finally {
       refresh.disabled = false;
+      refresh.textContent = textoOriginal;
     }
   }
 
@@ -1603,7 +1529,14 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
       message.textContent = data.mensaje || "¡Gracias! Quedó registrado.";
       message.className = "gift-message success";
 
-      await loadGifts();
+      if(!isSpecial(regaloActivo)) {
+        const idx = regalos.findIndex(g => Number(g.id) === Number(regaloActivo.id));
+        if(idx >= 0) {
+          regalos[idx].estado = "Reservado";
+          renderGifts();
+        }
+      }
+
       setTimeout(closeModal, 1300);
 
     } catch(err) {
@@ -1614,16 +1547,6 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
       confirmBtn.textContent = isSpecial(regaloActivo) ? "Registrar aporte" : "Reservar";
     }
   }
-
-  let lastAutoRefresh = 0;
-  window.addEventListener("focus", () => {
-    const now = Date.now();
-    if(now - lastAutoRefresh > 60000) {
-      lastAutoRefresh = now;
-      loadGifts();
-    }
-  });
-
 
   refresh.addEventListener("click", loadGifts);
   cancelBtn.addEventListener("click", closeModal);
@@ -1637,7 +1560,9 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
     if(e.key === "Escape" && !modal.classList.contains("hidden")) closeModal();
   });
 
-  loadGifts();
+  // Lista fija al abrir. Google Sheets solo se consulta al tocar "Actualizar".
+  renderFilters();
+  renderGifts();
 })();
 </script>
 
