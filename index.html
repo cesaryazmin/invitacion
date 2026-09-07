@@ -598,6 +598,281 @@ body.scrolled-dark .tips-list li {
   }
 }
 
+
+/* Lista de regalos */
+.gifts-shell {
+  max-width: 920px;
+  margin: 0 auto;
+  background: rgba(255,253,249,.95);
+  border: 1px solid rgba(218,198,173,.72);
+  border-radius: 30px;
+  padding: 24px;
+  box-shadow: 0 18px 46px rgba(27,20,16,.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.gifts-intro {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  text-align: center;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.gifts-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 18px 0 14px;
+}
+.gifts-count {
+  font-size: .92rem;
+  color: var(--muted);
+}
+.gifts-refresh {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.9);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-family: inherit;
+  cursor: pointer;
+}
+.gift-filters {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 0 12px;
+  scrollbar-width: thin;
+}
+.gift-filter {
+  flex: 0 0 auto;
+  appearance: none;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.88);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 9px 13px;
+  font-family: inherit;
+  font-size: .86rem;
+  cursor: pointer;
+}
+.gift-filter.active {
+  background: var(--dark);
+  color: #fff;
+  border-color: var(--dark);
+}
+.gifts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 13px;
+}
+.gift-card {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 18px;
+  background: rgba(255,255,255,.92);
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+}
+.gift-card.is-reserved {
+  opacity: .78;
+  background: rgba(246,242,238,.94);
+}
+.gift-category {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: .67rem;
+  margin-bottom: 8px;
+}
+.gift-card h3 {
+  margin: 0;
+  font-size: 1.28rem;
+  line-height: 1.25;
+  font-weight: 400;
+}
+.gift-card-foot {
+  margin-top: auto;
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.gift-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  border-radius: 999px;
+  padding: 0 10px;
+  font-size: .75rem;
+  font-weight: 700;
+}
+.gift-status.available {
+  background: #e9f6ec;
+  color: #246b36;
+}
+.gift-status.reserved {
+  background: #f2e7e4;
+  color: #8b554b;
+}
+.gift-action {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  min-height: 40px;
+  padding: 0 14px;
+  background: var(--dark);
+  color: #fff;
+  font-family: inherit;
+  cursor: pointer;
+}
+.gift-action:disabled {
+  cursor: not-allowed;
+  background: #a89f99;
+}
+.gifts-loading, .gifts-error {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 32px 15px;
+  color: var(--muted);
+}
+.gifts-error strong {
+  display: block;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.gifts-note {
+  text-align: center;
+  color: var(--muted);
+  font-size: .86rem;
+  margin: 16px auto 0;
+}
+.gift-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(20,17,15,.68);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.gift-modal.hidden {
+  display: none;
+}
+.gift-modal-card {
+  width: min(460px, 100%);
+  background: #fffdf9;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 26px;
+  box-shadow: 0 24px 70px rgba(0,0,0,.28);
+}
+.gift-modal-card .mini {
+  display: block;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: .7rem;
+  margin-bottom: 7px;
+}
+.gift-modal-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.65rem;
+  font-weight: 400;
+}
+.gift-modal-card p {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+.gift-modal-card label {
+  display: block;
+  margin: 12px 0 6px;
+  font-size: .9rem;
+}
+.gift-modal-card input,
+.gift-modal-card textarea {
+  width: 100%;
+  border: 1px solid #d9cbc0;
+  border-radius: 14px;
+  padding: 12px 13px;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  outline: none;
+}
+.gift-modal-card input:focus,
+.gift-modal-card textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(181,140,105,.12);
+}
+.gift-modal-card textarea {
+  min-height: 84px;
+  resize: vertical;
+}
+.gift-modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+.gift-modal-actions button {
+  flex: 1;
+  min-height: 46px;
+  border-radius: 999px;
+  font-family: inherit;
+  cursor: pointer;
+}
+.gift-confirm {
+  border: 0;
+  background: var(--dark);
+  color: #fff;
+}
+.gift-cancel {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+}
+.gift-message {
+  min-height: 22px;
+  margin-top: 12px;
+  text-align: center;
+  font-size: .9rem;
+  color: var(--muted);
+}
+.gift-message.success { color: #246b36; }
+.gift-message.error { color: #9b2c2c; }
+
+body.scrolled-dark .gifts-shell,
+body.scrolled-dark .gift-card {
+  background: rgba(255,253,249,.94);
+}
+
+@media (max-width:720px) {
+  .gifts-shell {
+    padding: 16px 12px;
+    border-radius: 24px;
+  }
+  .gifts-grid {
+    grid-template-columns: 1fr;
+  }
+  .gift-card {
+    min-height: 165px;
+  }
+  .gifts-toolbar {
+    align-items: flex-start;
+  }
+  .gift-modal-card {
+    padding: 22px 18px;
+    border-radius: 24px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -800,6 +1075,61 @@ body.scrolled-dark .tips-list li {
   </div>
 </section>
 
+
+<section class="fade" id="lista-regalos">
+  <div class="wrap">
+    <div class="title">
+      <small>Un detalle con cariño</small>
+      <h2>Lista de regalos</h2>
+    </div>
+
+    <div class="gifts-shell">
+      <p class="gifts-intro">
+        Su presencia es nuestro mejor regalo. Si desean hacernos un obsequio,
+        preparamos estas opciones con mucho cariño.
+      </p>
+
+      <div class="gifts-toolbar">
+        <div id="giftsCount" class="gifts-count">Cargando regalos…</div>
+        <button id="giftsRefresh" class="gifts-refresh" type="button">Actualizar</button>
+      </div>
+
+      <div id="giftFilters" class="gift-filters" aria-label="Categorías de regalos"></div>
+
+      <div id="giftsGrid" class="gifts-grid" aria-live="polite">
+        <div class="gifts-loading">Cargando lista de regalos…</div>
+      </div>
+
+      <p class="gifts-note">
+        Los regalos marcados como “Reservado” ya fueron elegidos.
+        Los regalos especiales permiten más de un aporte.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div id="giftModal" class="gift-modal hidden" role="dialog" aria-modal="true" aria-labelledby="giftModalTitle">
+  <div class="gift-modal-card">
+    <span id="giftModalMini" class="mini">Elegir regalo</span>
+    <h3 id="giftModalTitle">Regalo</h3>
+    <p id="giftModalText">Completá tu nombre para confirmar.</p>
+
+    <label for="giftGuestName">Tu nombre *</label>
+    <input id="giftGuestName" type="text" maxlength="80" autocomplete="name" placeholder="Nombre y apellido">
+
+    <div id="giftObservationWrap">
+      <label for="giftObservation">Mensaje u observación (opcional)</label>
+      <textarea id="giftObservation" maxlength="250" placeholder="Podés dejar un mensaje para César & Yazmín"></textarea>
+    </div>
+
+    <div class="gift-modal-actions">
+      <button id="giftCancel" class="gift-cancel" type="button">Cancelar</button>
+      <button id="giftConfirm" class="gift-confirm" type="button">Confirmar</button>
+    </div>
+    <div id="giftMessage" class="gift-message"></div>
+  </div>
+</div>
+
 <section class="rsvp fade">
   <div class="wrap">
     <div class="title">
@@ -933,9 +1263,6 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
   audio.addEventListener("pause", updateButton);
 })();
 </script>
-<div class="song-note" id="songNote">En el celular se abrirá el menú para compartir la sugerencia.</div>
-  </div>
-</div>
 <script>
 (function(){
   const root = document.documentElement;
@@ -956,6 +1283,279 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
   window.addEventListener("resize", updateVideoShade);
 })();
 </script>
+
+
+
+<script>
+(function(){
+  const API_URL = "https://script.google.com/macros/s/AKfycbwmeH1fdJ27a0d2NSWLj4Jl2Rbv2mzZCnbKgueHYPzNTjPmMXeme9Gvp3zMu6CHtXwatQ/exec";
+  const grid = document.getElementById("giftsGrid");
+  const filters = document.getElementById("giftFilters");
+  const count = document.getElementById("giftsCount");
+  const refresh = document.getElementById("giftsRefresh");
+  const modal = document.getElementById("giftModal");
+  const modalMini = document.getElementById("giftModalMini");
+  const modalTitle = document.getElementById("giftModalTitle");
+  const modalText = document.getElementById("giftModalText");
+  const nameInput = document.getElementById("giftGuestName");
+  const observation = document.getElementById("giftObservation");
+  const observationWrap = document.getElementById("giftObservationWrap");
+  const cancelBtn = document.getElementById("giftCancel");
+  const confirmBtn = document.getElementById("giftConfirm");
+  const message = document.getElementById("giftMessage");
+
+  if(!grid || !filters || !modal) return;
+
+  let regalos = [];
+  let categoriaActiva = "Todos";
+  let regaloActivo = null;
+
+  function safe(v) {
+    return String(v == null ? "" : v);
+  }
+
+  function isSpecial(g) {
+    return safe(g.tipo).toLowerCase().includes("aporte");
+  }
+
+  // JSONP: funciona desde GitHub Pages sin bloqueo CORS.
+  function apiCall(params) {
+    return new Promise((resolve, reject) => {
+      const callback = "__gift_cb_" + Date.now() + "_" + Math.random().toString(36).slice(2);
+      const script = document.createElement("script");
+      let finished = false;
+
+      const cleanup = () => {
+        if(finished) return;
+        finished = true;
+        try { delete window[callback]; } catch(e) { window[callback] = undefined; }
+        if(script.parentNode) script.parentNode.removeChild(script);
+      };
+
+      const timer = setTimeout(() => {
+        cleanup();
+        reject(new Error("Tiempo de espera agotado"));
+      }, 15000);
+
+      window[callback] = (data) => {
+        clearTimeout(timer);
+        cleanup();
+        resolve(data);
+      };
+
+      params.callback = callback;
+      params._ = Date.now();
+
+      const qs = Object.keys(params)
+        .map(k => encodeURIComponent(k) + "=" + encodeURIComponent(params[k] == null ? "" : params[k]))
+        .join("&");
+
+      script.src = API_URL + "?" + qs;
+      script.async = true;
+      script.onerror = () => {
+        clearTimeout(timer);
+        cleanup();
+        reject(new Error("No se pudo conectar con la lista"));
+      };
+
+      document.body.appendChild(script);
+    });
+  }
+
+  function categories() {
+    const vals = regalos.map(g => safe(g.categoria)).filter(Boolean);
+    return ["Todos", ...Array.from(new Set(vals))];
+  }
+
+  function renderFilters() {
+    filters.innerHTML = "";
+    categories().forEach(cat => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "gift-filter" + (cat === categoriaActiva ? " active" : "");
+      b.textContent = cat;
+      b.addEventListener("click", () => {
+        categoriaActiva = cat;
+        renderFilters();
+        renderGifts();
+      });
+      filters.appendChild(b);
+    });
+  }
+
+  function renderGifts() {
+    const visibles = categoriaActiva === "Todos"
+      ? regalos
+      : regalos.filter(g => safe(g.categoria) === categoriaActiva);
+
+    const reservados = regalos.filter(
+      g => safe(g.estado).toLowerCase() === "reservado" && !isSpecial(g)
+    ).length;
+
+    count.textContent = regalos.length + " regalos · " + reservados + " reservados";
+    grid.innerHTML = "";
+
+    if(!visibles.length) {
+      grid.innerHTML = '<div class="gifts-loading">No hay regalos en esta categoría.</div>';
+      return;
+    }
+
+    visibles.forEach(g => {
+      const special = isSpecial(g);
+      const reserved = !special && safe(g.estado).toLowerCase() === "reservado";
+
+      const card = document.createElement("article");
+      card.className = "gift-card" + (reserved ? " is-reserved" : "");
+
+      const cat = document.createElement("div");
+      cat.className = "gift-category";
+      cat.textContent = safe(g.categoria);
+
+      const title = document.createElement("h3");
+      title.textContent = safe(g.regalo);
+
+      const foot = document.createElement("div");
+      foot.className = "gift-card-foot";
+
+      const status = document.createElement("span");
+      status.className = "gift-status " + (reserved ? "reserved" : "available");
+      status.textContent = special ? "Aportes abiertos" : (reserved ? "Reservado" : "Disponible");
+
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "gift-action";
+      button.disabled = reserved;
+      button.textContent = special ? "Quiero aportar" : (reserved ? "Ya elegido" : "Elegir regalo");
+
+      if(!reserved) {
+        button.addEventListener("click", () => openModal(g));
+      }
+
+      foot.appendChild(status);
+      foot.appendChild(button);
+      card.appendChild(cat);
+      card.appendChild(title);
+      card.appendChild(foot);
+      grid.appendChild(card);
+    });
+  }
+
+  function openModal(g) {
+    regaloActivo = g;
+    const special = isSpecial(g);
+    modalMini.textContent = special ? "Aporte especial" : "Elegir regalo";
+    modalTitle.textContent = safe(g.regalo);
+    modalText.textContent = special
+      ? "Registrá tu nombre para indicarnos que querés realizar este aporte."
+      : "Completá tu nombre para reservar este regalo.";
+    observationWrap.style.display = special ? "block" : "none";
+    observation.value = "";
+    message.textContent = "";
+    message.className = "gift-message";
+    confirmBtn.disabled = false;
+    confirmBtn.textContent = special ? "Registrar aporte" : "Reservar";
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    setTimeout(() => nameInput.focus(), 80);
+  }
+
+  function closeModal() {
+    modal.classList.add("hidden");
+    document.body.style.overflow = "";
+    regaloActivo = null;
+    nameInput.value = "";
+    observation.value = "";
+    message.textContent = "";
+  }
+
+  async function loadGifts() {
+    grid.innerHTML = '<div class="gifts-loading">Cargando lista de regalos…</div>';
+    count.textContent = "Cargando regalos…";
+    refresh.disabled = true;
+
+    try {
+      const data = await apiCall({ action: "listar" });
+
+      if(!data || !data.ok || !Array.isArray(data.regalos)) {
+        throw new Error(data && data.error ? data.error : "Respuesta no válida");
+      }
+
+      regalos = data.regalos;
+      if(categoriaActiva !== "Todos" && !categories().includes(categoriaActiva)) {
+        categoriaActiva = "Todos";
+      }
+      renderFilters();
+      renderGifts();
+    } catch(err) {
+      console.error(err);
+      count.textContent = "No se pudo cargar la lista";
+      grid.innerHTML =
+        '<div class="gifts-error"><strong>No pudimos cargar los regalos.</strong>' +
+        'Tocá “Actualizar” para intentar nuevamente.</div>';
+    } finally {
+      refresh.disabled = false;
+    }
+  }
+
+  async function reserveGift() {
+    if(!regaloActivo) return;
+
+    const nombre = nameInput.value.trim();
+    if(!nombre) {
+      message.textContent = "Escribí tu nombre para continuar.";
+      message.className = "gift-message error";
+      nameInput.focus();
+      return;
+    }
+
+    confirmBtn.disabled = true;
+    confirmBtn.textContent = "Guardando…";
+    message.textContent = "";
+    message.className = "gift-message";
+
+    try {
+      const data = await apiCall({
+        action: "reservar",
+        id: Number(regaloActivo.id),
+        nombre: nombre,
+        observacion: observation.value.trim()
+      });
+
+      if(!data || !data.ok) {
+        throw new Error(data && data.error ? data.error : "No se pudo guardar");
+      }
+
+      message.textContent = data.mensaje || "¡Gracias! Quedó registrado.";
+      message.className = "gift-message success";
+
+      await loadGifts();
+      setTimeout(closeModal, 1300);
+
+    } catch(err) {
+      console.error(err);
+      message.textContent = err.message || "No se pudo completar la reserva. Intentá nuevamente.";
+      message.className = "gift-message error";
+      confirmBtn.disabled = false;
+      confirmBtn.textContent = isSpecial(regaloActivo) ? "Registrar aporte" : "Reservar";
+    }
+  }
+
+  refresh.addEventListener("click", loadGifts);
+  cancelBtn.addEventListener("click", closeModal);
+  confirmBtn.addEventListener("click", reserveGift);
+
+  modal.addEventListener("click", e => {
+    if(e.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", e => {
+    if(e.key === "Escape" && !modal.classList.contains("hidden")) closeModal();
+  });
+
+  loadGifts();
+})();
+</script>
+
 
 </body>
 </html>
