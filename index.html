@@ -873,6 +873,16 @@ body.scrolled-dark .gift-card {
   }
 }
 
+
+.gift-category-section{grid-column:1/-1;margin:4px 0 12px}
+.gift-section-title{margin:4px 0 12px;font-size:1.35rem;font-weight:400;text-align:left;color:var(--ink)}
+.gift-category-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.gift-category-section[hidden]{display:none!important}
+@media(max-width:720px){
+  .gift-category-grid{grid-template-columns:1fr}
+  .gift-section-title{font-size:1.22rem;margin-top:8px}
+}
+
 </style>
 </head>
 <body>
@@ -1089,20 +1099,401 @@ body.scrolled-dark .gift-card {
       </p>
 
       <div class="gifts-toolbar">
-        <div id="giftsCount" class="gifts-count">Cargando regalos…</div>
+        <div id="giftsCount" class="gifts-count">43 regalos · tocá Actualizar para consultar estados</div>
         <button id="giftsRefresh" class="gifts-refresh" type="button">Actualizar</button>
       </div>
 
-      <div id="giftFilters" class="gift-filters" aria-label="Categorías de regalos"></div>
+      <div id="giftFilters" class="gift-filters" aria-label="Categorías de regalos"><button type="button" class="gift-filter active" data-filter="Todos">Todos</button></div>
 
       <div id="giftsGrid" class="gifts-grid" aria-live="polite">
-        <div class="gifts-loading">Cargando lista de regalos…</div>
+      <div class="gift-category-section" data-gift-section="Cocina y comedor">
+        <h3 class="gift-section-title">Cocina y comedor</h3>
+        <div class="gift-category-grid">
+          
+          <article class="gift-card" data-gift-id="1" data-category="Cocina y comedor" data-type="Único" data-name="Juego de platos hondos">
+            <div class="gift-category">Cocina y comedor</div>
+            <h3>Juego de platos hondos</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="2" data-category="Cocina y comedor" data-type="Único" data-name="Juego de platos playos">
+            <div class="gift-category">Cocina y comedor</div>
+            <h3>Juego de platos playos</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="3" data-category="Cocina y comedor" data-type="Único" data-name="Juego de cubiertos">
+            <div class="gift-category">Cocina y comedor</div>
+            <h3>Juego de cubiertos</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="4" data-category="Cocina y comedor" data-type="Único" data-name="Juego de vasos">
+            <div class="gift-category">Cocina y comedor</div>
+            <h3>Juego de vasos</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="5" data-category="Cocina y comedor" data-type="Único" data-name="Juego de copas de vino">
+            <div class="gift-category">Cocina y comedor</div>
+            <h3>Juego de copas de vino</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="6" data-category="Cocina y comedor" data-type="Único" data-name="Juego de tazas de café">
+            <div class="gift-category">Cocina y comedor</div>
+            <h3>Juego de tazas de café</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="7" data-category="Cocina y comedor" data-type="Único" data-name="Juego de ollas">
+            <div class="gift-category">Cocina y comedor</div>
+            <h3>Juego de ollas</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="8" data-category="Cocina y comedor" data-type="Único" data-name="Kit para mate">
+            <div class="gift-category">Cocina y comedor</div>
+            <h3>Kit para mate</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="9" data-category="Cocina y comedor" data-type="Único" data-name="Kit para tereré">
+            <div class="gift-category">Cocina y comedor</div>
+            <h3>Kit para tereré</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="10" data-category="Cocina y comedor" data-type="Único" data-name="Frascos herméticos">
+            <div class="gift-category">Cocina y comedor</div>
+            <h3>Frascos herméticos</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="11" data-category="Cocina y comedor" data-type="Único" data-name="Juego de manteles">
+            <div class="gift-category">Cocina y comedor</div>
+            <h3>Juego de manteles</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+        </div>
       </div>
+      <div class="gift-category-section" data-gift-section="Electrodomésticos">
+        <h3 class="gift-section-title">Electrodomésticos</h3>
+        <div class="gift-category-grid">
+          
+          <article class="gift-card" data-gift-id="12" data-category="Electrodomésticos" data-type="Único" data-name="Licuadora">
+            <div class="gift-category">Electrodomésticos</div>
+            <h3>Licuadora</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="13" data-category="Electrodomésticos" data-type="Único" data-name="Batidora">
+            <div class="gift-category">Electrodomésticos</div>
+            <h3>Batidora</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="14" data-category="Electrodomésticos" data-type="Único" data-name="Mixer de mano">
+            <div class="gift-category">Electrodomésticos</div>
+            <h3>Mixer de mano</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="15" data-category="Electrodomésticos" data-type="Único" data-name="Procesadora de alimentos">
+            <div class="gift-category">Electrodomésticos</div>
+            <h3>Procesadora de alimentos</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="16" data-category="Electrodomésticos" data-type="Único" data-name="Cafetera eléctrica">
+            <div class="gift-category">Electrodomésticos</div>
+            <h3>Cafetera eléctrica</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="17" data-category="Electrodomésticos" data-type="Único" data-name="Jarra eléctrica">
+            <div class="gift-category">Electrodomésticos</div>
+            <h3>Jarra eléctrica</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="18" data-category="Electrodomésticos" data-type="Único" data-name="Microondas">
+            <div class="gift-category">Electrodomésticos</div>
+            <h3>Microondas</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="19" data-category="Electrodomésticos" data-type="Único" data-name="Horno eléctrico">
+            <div class="gift-category">Electrodomésticos</div>
+            <h3>Horno eléctrico</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="20" data-category="Electrodomésticos" data-type="Único" data-name="Parrilla eléctrica">
+            <div class="gift-category">Electrodomésticos</div>
+            <h3>Parrilla eléctrica</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="21" data-category="Electrodomésticos" data-type="Único" data-name="Extractor de jugos">
+            <div class="gift-category">Electrodomésticos</div>
+            <h3>Extractor de jugos</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="22" data-category="Electrodomésticos" data-type="Único" data-name="Máquina de pan">
+            <div class="gift-category">Electrodomésticos</div>
+            <h3>Máquina de pan</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="23" data-category="Electrodomésticos" data-type="Único" data-name="Plancha grill">
+            <div class="gift-category">Electrodomésticos</div>
+            <h3>Plancha grill</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="gift-category-section" data-gift-section="Dormitorio">
+        <h3 class="gift-section-title">Dormitorio</h3>
+        <div class="gift-category-grid">
+          
+          <article class="gift-card" data-gift-id="24" data-category="Dormitorio" data-type="Único" data-name="Juego de sábanas matrimonial">
+            <div class="gift-category">Dormitorio</div>
+            <h3>Juego de sábanas matrimonial</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="25" data-category="Dormitorio" data-type="Único" data-name="Edredón">
+            <div class="gift-category">Dormitorio</div>
+            <h3>Edredón</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="26" data-category="Dormitorio" data-type="Único" data-name="Frazada">
+            <div class="gift-category">Dormitorio</div>
+            <h3>Frazada</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="27" data-category="Dormitorio" data-type="Único" data-name="Juego de cortina antisolar">
+            <div class="gift-category">Dormitorio</div>
+            <h3>Juego de cortina antisolar</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="28" data-category="Dormitorio" data-type="Único" data-name="Tapetes">
+            <div class="gift-category">Dormitorio</div>
+            <h3>Tapetes</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="gift-category-section" data-gift-section="Baño">
+        <h3 class="gift-section-title">Baño</h3>
+        <div class="gift-category-grid">
+          
+          <article class="gift-card" data-gift-id="29" data-category="Baño" data-type="Único" data-name="Juego de toallas de baño">
+            <div class="gift-category">Baño</div>
+            <h3>Juego de toallas de baño</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="30" data-category="Baño" data-type="Único" data-name="Juego de toallas de mano">
+            <div class="gift-category">Baño</div>
+            <h3>Juego de toallas de mano</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="31" data-category="Baño" data-type="Único" data-name="Alfombra de baño">
+            <div class="gift-category">Baño</div>
+            <h3>Alfombra de baño</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="32" data-category="Baño" data-type="Único" data-name="Salida de baño para él/ella">
+            <div class="gift-category">Baño</div>
+            <h3>Salida de baño para él/ella</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="gift-category-section" data-gift-section="Sala y decoración">
+        <h3 class="gift-section-title">Sala y decoración</h3>
+        <div class="gift-category-grid">
+          
+          <article class="gift-card" data-gift-id="33" data-category="Sala y decoración" data-type="Único" data-name="Portarretratos">
+            <div class="gift-category">Sala y decoración</div>
+            <h3>Portarretratos</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="34" data-category="Sala y decoración" data-type="Único" data-name="Alfombra para sala">
+            <div class="gift-category">Sala y decoración</div>
+            <h3>Alfombra para sala</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="35" data-category="Sala y decoración" data-type="Único" data-name="Cortinas para sala">
+            <div class="gift-category">Sala y decoración</div>
+            <h3>Cortinas para sala</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="gift-category-section" data-gift-section="Lavandería, limpieza y hogar">
+        <h3 class="gift-section-title">Lavandería, limpieza y hogar</h3>
+        <div class="gift-category-grid">
+          
+          <article class="gift-card" data-gift-id="36" data-category="Lavandería, limpieza y hogar" data-type="Único" data-name="Hidrolavadora pequeña">
+            <div class="gift-category">Lavandería, limpieza y hogar</div>
+            <h3>Hidrolavadora pequeña</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="37" data-category="Lavandería, limpieza y hogar" data-type="Único" data-name="Caja de herramientas para el hogar">
+            <div class="gift-category">Lavandería, limpieza y hogar</div>
+            <h3>Caja de herramientas para el hogar</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="38" data-category="Lavandería, limpieza y hogar" data-type="Único" data-name="Taladro inalámbrico">
+            <div class="gift-category">Lavandería, limpieza y hogar</div>
+            <h3>Taladro inalámbrico</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Disponible</span>
+              <button class="gift-action" data-role="choose" type="button">Elegir regalo</button>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="gift-category-section" data-gift-section="Regalos especiales">
+        <h3 class="gift-section-title">Regalos especiales</h3>
+        <div class="gift-category-grid">
+          
+          <article class="gift-card" data-gift-id="39" data-category="Regalos especiales" data-type="Aporte múltiple" data-name="Vale para compra de muebles">
+            <div class="gift-category">Regalos especiales</div>
+            <h3>Vale para compra de muebles</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Aportes abiertos</span>
+              <button class="gift-action" data-role="choose" type="button">Quiero aportar</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="40" data-category="Regalos especiales" data-type="Aporte múltiple" data-name="Vale para electrodomésticos">
+            <div class="gift-category">Regalos especiales</div>
+            <h3>Vale para electrodomésticos</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Aportes abiertos</span>
+              <button class="gift-action" data-role="choose" type="button">Quiero aportar</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="41" data-category="Regalos especiales" data-type="Aporte múltiple" data-name="Aporte para la luna de miel">
+            <div class="gift-category">Regalos especiales</div>
+            <h3>Aporte para la luna de miel</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Aportes abiertos</span>
+              <button class="gift-action" data-role="choose" type="button">Quiero aportar</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="42" data-category="Regalos especiales" data-type="Aporte múltiple" data-name="Aporte para equipamiento de la casa">
+            <div class="gift-category">Regalos especiales</div>
+            <h3>Aporte para equipamiento de la casa</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Aportes abiertos</span>
+              <button class="gift-action" data-role="choose" type="button">Quiero aportar</button>
+            </div>
+          </article>
+          <article class="gift-card" data-gift-id="43" data-category="Regalos especiales" data-type="Aporte múltiple" data-name="Sobre de regalo / aporte en efectivo">
+            <div class="gift-category">Regalos especiales</div>
+            <h3>Sobre de regalo / aporte en efectivo</h3>
+            <div class="gift-card-foot">
+              <span class="gift-status available" data-role="status">Aportes abiertos</span>
+              <button class="gift-action" data-role="choose" type="button">Quiero aportar</button>
+            </div>
+          </article>
+        </div>
+      </div></div>
 
-      <p class="gifts-note">
-        Los regalos marcados como “Reservado” ya fueron elegidos.
-        Los regalos especiales permiten más de un aporte.
-      </p>
+      <p class="gifts-note">La lista siempre queda visible. Tocá <strong>Actualizar</strong> cuando quieras consultar los estados actuales de la planilla.</p>
     </div>
   </div>
 </section>
@@ -1287,222 +1678,189 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
 
 <script>
 (function(){
-  const API_URL = "https://script.google.com/macros/s/AKfycbyxgPrXtuVXS0UHAVASxXXZOn35-4th86Hc_Q7dC4ASvHgefbhN7IZ55E5ANaHIybIIMQ/exec";
-  const grid = document.getElementById("giftsGrid");
-  const filters = document.getElementById("giftFilters");
-  const count = document.getElementById("giftsCount");
-  const refresh = document.getElementById("giftsRefresh");
-  const modal = document.getElementById("giftModal");
-  const modalMini = document.getElementById("giftModalMini");
-  const modalTitle = document.getElementById("giftModalTitle");
-  const modalText = document.getElementById("giftModalText");
-  const nameInput = document.getElementById("giftGuestName");
-  const observation = document.getElementById("giftObservation");
-  const observationWrap = document.getElementById("giftObservationWrap");
-  const cancelBtn = document.getElementById("giftCancel");
-  const confirmBtn = document.getElementById("giftConfirm");
-  const message = document.getElementById("giftMessage");
+  var API_URL = "https://script.google.com/macros/s/AKfycbyxgPrXtuVXS0UHAVASxXXZOn35-4th86Hc_Q7dC4ASvHgefbhN7IZ55E5ANaHIybIIMQ/exec";
+  var refreshBtn = document.getElementById("giftsRefresh");
+  var countEl = document.getElementById("giftsCount");
+  var filtersEl = document.getElementById("giftFilters");
+  var modal = document.getElementById("giftModal");
+  var modalMini = document.getElementById("giftModalMini");
+  var modalTitle = document.getElementById("giftModalTitle");
+  var modalText = document.getElementById("giftModalText");
+  var nameInput = document.getElementById("giftGuestName");
+  var observation = document.getElementById("giftObservation");
+  var observationWrap = document.getElementById("giftObservationWrap");
+  var cancelBtn = document.getElementById("giftCancel");
+  var confirmBtn = document.getElementById("giftConfirm");
+  var message = document.getElementById("giftMessage");
+  var activeGift = null;
 
-  if(!grid || !filters || !modal) return;
-
-  const REGALOS_FIJOS = [{"id": 1, "categoria": "Cocina y comedor", "regalo": "Juego de platos hondos", "tipo": "Único", "estado": "Disponible"}, {"id": 2, "categoria": "Cocina y comedor", "regalo": "Juego de platos playos", "tipo": "Único", "estado": "Disponible"}, {"id": 3, "categoria": "Cocina y comedor", "regalo": "Juego de cubiertos", "tipo": "Único", "estado": "Disponible"}, {"id": 4, "categoria": "Cocina y comedor", "regalo": "Juego de vasos", "tipo": "Único", "estado": "Disponible"}, {"id": 5, "categoria": "Cocina y comedor", "regalo": "Juego de copas de vino", "tipo": "Único", "estado": "Disponible"}, {"id": 6, "categoria": "Cocina y comedor", "regalo": "Juego de tazas de café", "tipo": "Único", "estado": "Disponible"}, {"id": 7, "categoria": "Cocina y comedor", "regalo": "Juego de ollas", "tipo": "Único", "estado": "Disponible"}, {"id": 8, "categoria": "Cocina y comedor", "regalo": "Kit para mate", "tipo": "Único", "estado": "Disponible"}, {"id": 9, "categoria": "Cocina y comedor", "regalo": "Kit para tereré", "tipo": "Único", "estado": "Disponible"}, {"id": 10, "categoria": "Cocina y comedor", "regalo": "Frascos herméticos", "tipo": "Único", "estado": "Disponible"}, {"id": 11, "categoria": "Cocina y comedor", "regalo": "Juego de manteles", "tipo": "Único", "estado": "Disponible"}, {"id": 12, "categoria": "Electrodomésticos", "regalo": "Licuadora", "tipo": "Único", "estado": "Disponible"}, {"id": 13, "categoria": "Electrodomésticos", "regalo": "Batidora", "tipo": "Único", "estado": "Disponible"}, {"id": 14, "categoria": "Electrodomésticos", "regalo": "Mixer de mano", "tipo": "Único", "estado": "Disponible"}, {"id": 15, "categoria": "Electrodomésticos", "regalo": "Procesadora de alimentos", "tipo": "Único", "estado": "Disponible"}, {"id": 16, "categoria": "Electrodomésticos", "regalo": "Cafetera eléctrica", "tipo": "Único", "estado": "Disponible"}, {"id": 17, "categoria": "Electrodomésticos", "regalo": "Jarra eléctrica", "tipo": "Único", "estado": "Disponible"}, {"id": 18, "categoria": "Electrodomésticos", "regalo": "Microondas", "tipo": "Único", "estado": "Disponible"}, {"id": 19, "categoria": "Electrodomésticos", "regalo": "Horno eléctrico", "tipo": "Único", "estado": "Disponible"}, {"id": 20, "categoria": "Electrodomésticos", "regalo": "Parrilla eléctrica", "tipo": "Único", "estado": "Disponible"}, {"id": 21, "categoria": "Electrodomésticos", "regalo": "Extractor de jugos", "tipo": "Único", "estado": "Disponible"}, {"id": 22, "categoria": "Electrodomésticos", "regalo": "Máquina de pan", "tipo": "Único", "estado": "Disponible"}, {"id": 23, "categoria": "Electrodomésticos", "regalo": "Plancha grill", "tipo": "Único", "estado": "Disponible"}, {"id": 24, "categoria": "Dormitorio", "regalo": "Juego de sábanas matrimonial", "tipo": "Único", "estado": "Disponible"}, {"id": 25, "categoria": "Dormitorio", "regalo": "Edredón", "tipo": "Único", "estado": "Disponible"}, {"id": 26, "categoria": "Dormitorio", "regalo": "Frazada", "tipo": "Único", "estado": "Disponible"}, {"id": 27, "categoria": "Dormitorio", "regalo": "Juego de cortina antisolar", "tipo": "Único", "estado": "Disponible"}, {"id": 28, "categoria": "Dormitorio", "regalo": "Tapetes", "tipo": "Único", "estado": "Disponible"}, {"id": 29, "categoria": "Baño", "regalo": "Juego de toallas de baño", "tipo": "Único", "estado": "Disponible"}, {"id": 30, "categoria": "Baño", "regalo": "Juego de toallas de mano", "tipo": "Único", "estado": "Disponible"}, {"id": 31, "categoria": "Baño", "regalo": "Alfombra de baño", "tipo": "Único", "estado": "Disponible"}, {"id": 32, "categoria": "Baño", "regalo": "Salida de baño para él/ella", "tipo": "Único", "estado": "Disponible"}, {"id": 33, "categoria": "Sala y decoración", "regalo": "Portarretratos", "tipo": "Único", "estado": "Disponible"}, {"id": 34, "categoria": "Sala y decoración", "regalo": "Alfombra para sala", "tipo": "Único", "estado": "Disponible"}, {"id": 35, "categoria": "Sala y decoración", "regalo": "Cortinas para sala", "tipo": "Único", "estado": "Disponible"}, {"id": 36, "categoria": "Lavandería, limpieza y hogar", "regalo": "Hidrolavadora pequeña", "tipo": "Único", "estado": "Disponible"}, {"id": 37, "categoria": "Lavandería, limpieza y hogar", "regalo": "Caja de herramientas para el hogar", "tipo": "Único", "estado": "Disponible"}, {"id": 38, "categoria": "Lavandería, limpieza y hogar", "regalo": "Taladro inalámbrico", "tipo": "Único", "estado": "Disponible"}, {"id": 39, "categoria": "Regalos especiales", "regalo": "Vale para compra de muebles", "tipo": "Aporte múltiple", "estado": "Disponible"}, {"id": 40, "categoria": "Regalos especiales", "regalo": "Vale para electrodomésticos", "tipo": "Aporte múltiple", "estado": "Disponible"}, {"id": 41, "categoria": "Regalos especiales", "regalo": "Aporte para la luna de miel", "tipo": "Aporte múltiple", "estado": "Disponible"}, {"id": 42, "categoria": "Regalos especiales", "regalo": "Aporte para equipamiento de la casa", "tipo": "Aporte múltiple", "estado": "Disponible"}, {"id": 43, "categoria": "Regalos especiales", "regalo": "Sobre de regalo / aporte en efectivo", "tipo": "Aporte múltiple", "estado": "Disponible"}];
-  let regalos = REGALOS_FIJOS.map(g => ({...g}));
-  let categoriaActiva = "Todos";
-  let regaloActivo = null;
-
-  function safe(v) {
-    return String(v == null ? "" : v);
+  function each(list, fn){
+    for(var i=0;i<list.length;i++) fn(list[i], i);
   }
 
-  function isSpecial(g) {
-    return safe(g.tipo).toLowerCase().includes("aporte");
+  function cards(){
+    return document.querySelectorAll(".gift-card[data-gift-id]");
   }
 
-  // JSONP: funciona desde GitHub Pages sin bloqueo CORS.
-  function apiCall(params) {
-    return new Promise((resolve, reject) => {
-      const callback = "__gift_cb_" + Date.now() + "_" + Math.random().toString(36).slice(2);
-      const script = document.createElement("script");
-      let finished = false;
-
-      const cleanup = () => {
-        if(finished) return;
-        finished = true;
-        try { delete window[callback]; } catch(e) { window[callback] = undefined; }
-        if(script.parentNode) script.parentNode.removeChild(script);
-      };
-
-      const timer = setTimeout(() => {
-        cleanup();
-        reject(new Error("Tiempo de espera agotado"));
-      }, 15000);
-
-      window[callback] = (data) => {
-        clearTimeout(timer);
-        cleanup();
-        resolve(data);
-      };
-
-      params.callback = callback;
-      params._ = Date.now();
-
-      const qs = Object.keys(params)
-        .map(k => encodeURIComponent(k) + "=" + encodeURIComponent(params[k] == null ? "" : params[k]))
-        .join("&");
-
-      script.src = API_URL + "?" + qs;
-      script.async = true;
-      script.onerror = () => {
-        clearTimeout(timer);
-        cleanup();
-        reject(new Error("No se pudo conectar con la lista"));
-      };
-
-      document.body.appendChild(script);
-    });
+  function sections(){
+    return document.querySelectorAll(".gift-category-section[data-gift-section]");
   }
 
-  function categories() {
-    const vals = regalos.map(g => safe(g.categoria)).filter(Boolean);
-    return ["Todos", ...Array.from(new Set(vals))];
+  function isSpecial(card){
+    return String(card.getAttribute("data-type") || "").toLowerCase().indexOf("aporte") !== -1;
   }
 
-  function renderFilters() {
-    filters.innerHTML = "";
-    categories().forEach(cat => {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "gift-filter" + (cat === categoriaActiva ? " active" : "");
-      b.textContent = cat;
-      b.addEventListener("click", () => {
-        categoriaActiva = cat;
-        renderFilters();
-        renderGifts();
-      });
-      filters.appendChild(b);
-    });
+  function jsonp(params, done){
+    var cb = "__giftcb_" + new Date().getTime() + "_" + Math.floor(Math.random()*100000);
+    var script = document.createElement("script");
+    var finished = false;
+
+    function cleanup(){
+      if(finished) return;
+      finished = true;
+      try{ delete window[cb]; }catch(e){ window[cb] = undefined; }
+      if(script.parentNode) script.parentNode.removeChild(script);
+    }
+
+    var timer = setTimeout(function(){
+      cleanup();
+      done(new Error("La conexión tardó demasiado"));
+    }, 25000);
+
+    window[cb] = function(data){
+      clearTimeout(timer);
+      cleanup();
+      done(null, data);
+    };
+
+    params = params || {};
+    params.callback = cb;
+    params._ = new Date().getTime();
+
+    var parts = [];
+    for(var k in params){
+      if(Object.prototype.hasOwnProperty.call(params,k)){
+        parts.push(encodeURIComponent(k)+"="+encodeURIComponent(params[k] == null ? "" : params[k]));
+      }
+    }
+
+    script.src = API_URL + "?" + parts.join("&");
+    script.async = true;
+    script.onerror = function(){
+      clearTimeout(timer);
+      cleanup();
+      done(new Error("No se pudo conectar"));
+    };
+    document.body.appendChild(script);
   }
 
-  function renderGifts() {
-    const visibles = categoriaActiva === "Todos"
-      ? regalos
-      : regalos.filter(g => safe(g.categoria) === categoriaActiva);
+  function setCardState(card, state){
+    var status = card.querySelector('[data-role="status"]');
+    var button = card.querySelector('[data-role="choose"]');
+    var special = isSpecial(card);
 
-    const reservados = regalos.filter(
-      g => safe(g.estado).toLowerCase() === "reservado" && !isSpecial(g)
-    ).length;
-
-    count.textContent = regalos.length + " regalos · " + reservados + " reservados";
-    grid.innerHTML = "";
-
-    if(!visibles.length) {
-      grid.innerHTML = '<div class="gifts-loading">No hay regalos en esta categoría.</div>';
+    if(special){
+      card.classList.remove("is-reserved");
+      status.className = "gift-status available";
+      status.textContent = "Aportes abiertos";
+      button.disabled = false;
+      button.textContent = "Quiero aportar";
       return;
     }
 
-    visibles.forEach(g => {
-      const special = isSpecial(g);
-      const reserved = !special && safe(g.estado).toLowerCase() === "reservado";
+    if(String(state || "").toLowerCase() === "reservado"){
+      card.classList.add("is-reserved");
+      status.className = "gift-status reserved";
+      status.textContent = "Reservado";
+      button.disabled = true;
+      button.textContent = "Ya elegido";
+    } else {
+      card.classList.remove("is-reserved");
+      status.className = "gift-status available";
+      status.textContent = "Disponible";
+      button.disabled = false;
+      button.textContent = "Elegir regalo";
+    }
+  }
 
-      const card = document.createElement("article");
-      card.className = "gift-card" + (reserved ? " is-reserved" : "");
+  function updateFromServer(data){
+    if(!data || !data.ok || !data.regalos || typeof data.regalos.length === "undefined"){
+      throw new Error(data && data.error ? data.error : "Respuesta no válida");
+    }
 
-      const cat = document.createElement("div");
-      cat.className = "gift-category";
-      cat.textContent = safe(g.categoria);
+    var byId = {};
+    for(var i=0;i<data.regalos.length;i++){
+      byId[String(data.regalos[i].id)] = data.regalos[i];
+    }
 
-      const title = document.createElement("h3");
-      title.textContent = safe(g.regalo);
+    var allCards = cards();
+    var reserved = 0;
+    each(allCards, function(card){
+      var g = byId[String(card.getAttribute("data-gift-id"))];
+      if(g){
+        setCardState(card, g.estado);
+        if(!isSpecial(card) && String(g.estado).toLowerCase() === "reservado") reserved++;
+      }
+    });
 
-      const foot = document.createElement("div");
-      foot.className = "gift-card-foot";
+    countEl.textContent = allCards.length + " regalos · " + reserved + " reservados";
+  }
 
-      const status = document.createElement("span");
-      status.className = "gift-status " + (reserved ? "reserved" : "available");
-      status.textContent = special ? "Aportes abiertos" : (reserved ? "Reservado" : "Disponible");
+  function manualRefresh(){
+    if(!refreshBtn) return;
+    refreshBtn.disabled = true;
+    refreshBtn.textContent = "Actualizando…";
+    countEl.textContent = "Consultando estados…";
 
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "gift-action";
-      button.disabled = reserved;
-      button.textContent = special ? "Quiero aportar" : (reserved ? "Ya elegido" : "Elegir regalo");
+    jsonp({action:"listar"}, function(err, data){
+      refreshBtn.disabled = false;
+      refreshBtn.textContent = "Actualizar";
 
-      if(!reserved) {
-        button.addEventListener("click", () => openModal(g));
+      if(err){
+        countEl.textContent = "43 regalos · no se pudo actualizar";
+        return;
       }
 
-      foot.appendChild(status);
-      foot.appendChild(button);
-      card.appendChild(cat);
-      card.appendChild(title);
-      card.appendChild(foot);
-      grid.appendChild(card);
+      try{
+        updateFromServer(data);
+      }catch(e){
+        countEl.textContent = "43 regalos · no se pudo actualizar";
+      }
     });
   }
 
-  function openModal(g) {
-    regaloActivo = g;
-    const special = isSpecial(g);
+  function openModal(card){
+    activeGift = card;
+    var special = isSpecial(card);
+    var name = card.getAttribute("data-name") || "Regalo";
+
     modalMini.textContent = special ? "Aporte especial" : "Elegir regalo";
-    modalTitle.textContent = safe(g.regalo);
+    modalTitle.textContent = name;
     modalText.textContent = special
       ? "Registrá tu nombre para indicarnos que querés realizar este aporte."
       : "Completá tu nombre para reservar este regalo.";
     observationWrap.style.display = special ? "block" : "none";
     observation.value = "";
+    nameInput.value = "";
     message.textContent = "";
     message.className = "gift-message";
     confirmBtn.disabled = false;
     confirmBtn.textContent = special ? "Registrar aporte" : "Reservar";
     modal.classList.remove("hidden");
     document.body.style.overflow = "hidden";
-    setTimeout(() => nameInput.focus(), 80);
+    setTimeout(function(){ nameInput.focus(); }, 100);
   }
 
-  function closeModal() {
+  function closeModal(){
     modal.classList.add("hidden");
     document.body.style.overflow = "";
-    regaloActivo = null;
-    nameInput.value = "";
-    observation.value = "";
-    message.textContent = "";
+    activeGift = null;
   }
 
-  async function loadGifts() {
-    refresh.disabled = true;
-    const textoOriginal = refresh.textContent;
-    refresh.textContent = "Actualizando…";
-    count.textContent = regalos.length + " regalos · consultando estado…";
-
-    try {
-      const data = await apiCall({ action: "listar" });
-
-      if(!data || !data.ok || !Array.isArray(data.regalos)) {
-        throw new Error(data && data.error ? data.error : "Respuesta no válida");
-      }
-
-      regalos = data.regalos;
-      if(categoriaActiva !== "Todos" && !categories().includes(categoriaActiva)) {
-        categoriaActiva = "Todos";
-      }
-      renderFilters();
-      renderGifts();
-    } catch(err) {
-      console.error(err);
-      count.textContent = regalos.length + " regalos · no se pudo actualizar";
-      renderFilters();
-      renderGifts();
-    } finally {
-      refresh.disabled = false;
-      refresh.textContent = textoOriginal;
-    }
-  }
-
-  async function reserveGift() {
-    if(!regaloActivo) return;
-
-    const nombre = nameInput.value.trim();
-    if(!nombre) {
+  function reserve(){
+    if(!activeGift) return;
+    var guest = String(nameInput.value || "").replace(/^\s+|\s+$/g,"");
+    if(!guest){
       message.textContent = "Escribí tu nombre para continuar.";
       message.className = "gift-message error";
       nameInput.focus();
@@ -1512,57 +1870,76 @@ document.querySelectorAll(".fade").forEach(el => obs.observe(el));
     confirmBtn.disabled = true;
     confirmBtn.textContent = "Guardando…";
     message.textContent = "";
-    message.className = "gift-message";
 
-    try {
-      const data = await apiCall({
-        action: "reservar",
-        id: Number(regaloActivo.id),
-        nombre: nombre,
-        observacion: observation.value.trim()
-      });
-
-      if(!data || !data.ok) {
-        throw new Error(data && data.error ? data.error : "No se pudo guardar");
+    jsonp({
+      action:"reservar",
+      id:activeGift.getAttribute("data-gift-id"),
+      nombre:guest,
+      observacion:observation.value || ""
+    }, function(err, data){
+      if(err || !data || !data.ok){
+        message.textContent = (data && data.error) ? data.error : "No se pudo completar. Intentá nuevamente.";
+        message.className = "gift-message error";
+        confirmBtn.disabled = false;
+        confirmBtn.textContent = isSpecial(activeGift) ? "Registrar aporte" : "Reservar";
+        return;
       }
 
+      if(!isSpecial(activeGift)) setCardState(activeGift, "Reservado");
       message.textContent = data.mensaje || "¡Gracias! Quedó registrado.";
       message.className = "gift-message success";
-
-      if(!isSpecial(regaloActivo)) {
-        const idx = regalos.findIndex(g => Number(g.id) === Number(regaloActivo.id));
-        if(idx >= 0) {
-          regalos[idx].estado = "Reservado";
-          renderGifts();
-        }
-      }
-
       setTimeout(closeModal, 1300);
+    });
+  }
 
-    } catch(err) {
-      console.error(err);
-      message.textContent = err.message || "No se pudo completar la reserva. Intentá nuevamente.";
-      message.className = "gift-message error";
-      confirmBtn.disabled = false;
-      confirmBtn.textContent = isSpecial(regaloActivo) ? "Registrar aporte" : "Reservar";
+  function setupFilters(){
+    var categoryNames = [];
+    var seen = {};
+    each(sections(), function(sec){
+      var cat = sec.getAttribute("data-gift-section");
+      if(!seen[cat]){ seen[cat]=true; categoryNames.push(cat); }
+    });
+
+    filtersEl.innerHTML = "";
+    var names = ["Todos"].concat(categoryNames);
+    for(var i=0;i<names.length;i++){
+      (function(cat){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "gift-filter" + (cat==="Todos" ? " active" : "");
+        b.textContent = cat;
+        b.onclick = function(){
+          var btns = filtersEl.querySelectorAll(".gift-filter");
+          each(btns,function(x){ x.classList.remove("active"); });
+          b.classList.add("active");
+          each(sections(),function(sec){
+            sec.hidden = !(cat==="Todos" || sec.getAttribute("data-gift-section")===cat);
+          });
+        };
+        filtersEl.appendChild(b);
+      })(names[i]);
     }
   }
 
-  refresh.addEventListener("click", loadGifts);
-  cancelBtn.addEventListener("click", closeModal);
-  confirmBtn.addEventListener("click", reserveGift);
-
-  modal.addEventListener("click", e => {
-    if(e.target === modal) closeModal();
+  each(cards(), function(card){
+    var button = card.querySelector('[data-role="choose"]');
+    if(button){
+      button.onclick = function(){
+        if(!button.disabled) openModal(card);
+      };
+    }
   });
 
-  document.addEventListener("keydown", e => {
-    if(e.key === "Escape" && !modal.classList.contains("hidden")) closeModal();
-  });
+  if(refreshBtn) refreshBtn.onclick = manualRefresh;
+  if(cancelBtn) cancelBtn.onclick = closeModal;
+  if(confirmBtn) confirmBtn.onclick = reserve;
+  if(modal) modal.onclick = function(e){ if(e.target===modal) closeModal(); };
 
-  // Lista fija al abrir. Google Sheets solo se consulta al tocar "Actualizar".
-  renderFilters();
-  renderGifts();
+  setupFilters();
+
+  // IMPORTANTE: no se consulta Google al abrir.
+  // La lista ya está escrita en el HTML y siempre se muestra.
+  countEl.textContent = "43 regalos · tocá Actualizar para consultar estados";
 })();
 </script>
 
